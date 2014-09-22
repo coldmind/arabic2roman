@@ -12,13 +12,14 @@ $(document).ready(function() {
             var value = $("#number").val();
             if(value === "") {
                 $("#result").val('');
+                $('#error').hide();
                 return false;
             }
 
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({number: $("#number").val()}),
+                data: JSON.stringify({number: value}),
                 dataType: 'json',
                 url: '/convert_number/',
                 success: function (data){
